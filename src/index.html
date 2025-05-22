@@ -1,32 +1,42 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>画像検索サイト</title>
-  <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>画像検索 - 初期画面</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <div class="container">
+    <h1>画像検索</h1>
 
-  <header>
-    <div class="logo">画像検索</div>
-    <div class="search-bar">
-      <input type="text" placeholder="画像を検索...（デモ）">
-    </div>
-  </header>
+    <form action="result.html" method="get">
+  <label for="imageInput">画像を選択してください:</label>
+  <input
+    type="file"
+    id="imageInput"
+    name="image"
+    title="画像ファイルを選択してください"
+    accept="image/*"
+    onchange="previewImage(event)"
+  />
+  <div class="image-preview" id="preview-box">
+    <p>画像プレビューがここに表示されます</p>
+  </div>
+  <button type="submit">検索</button>
+</form>
 
-  <main class="grid">
-    <div class="image-card"><img src="https://source.unsplash.com/random/300x200?sig=1" alt="画像1"></div>
-    <div class="image-card"><img src="https://source.unsplash.com/random/300x200?sig=2" alt="画像2"></div>
-    <div class="image-card"><img src="https://source.unsplash.com/random/300x200?sig=3" alt="画像3"></div>
-    <div class="image-card"><img src="https://source.unsplash.com/random/300x200?sig=4" alt="画像4"></div>
-    <div class="image-card"><img src="https://source.unsplash.com/random/300x200?sig=5" alt="画像5"></div>
-    <div class="image-card"><img src="https://source.unsplash.com/random/300x200?sig=6" alt="画像6"></div>
-  </main>
+  </div>
 
-  <footer>
-    &copy; 2025 画像検索デモサイト
-  </footer>
-
+  <script>
+    function previewImage(event) {
+      const reader = new FileReader();
+      reader.onload = function(){
+        const output = document.getElementById('preview-box');
+        output.innerHTML = '<img src="' + reader.result + '" />';
+      };
+      reader.readAsDataURL(event.target.files[0]);
+    }
+  </script>
 </body>
 </html>
