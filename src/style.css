@@ -1,6 +1,7 @@
 /* ベース全体を中央に寄せる */
 body {
-  font-family: 'Segoe UI', sans-serif;
+  font-family: 'Press Start 2P', cursive;
+  font-weight: bold;
   background-color: #f9f9f9;
   margin: 0;
   padding: 0;
@@ -9,6 +10,7 @@ body {
   align-items: center;
   min-height: 100vh;
 }
+
 
 /* 中央カード風ボックス */
 .container {
