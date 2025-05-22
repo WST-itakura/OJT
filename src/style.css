@@ -91,7 +91,7 @@ button:hover {
 
 /* 雲 */
 .cloud {
-  background: url('komo2.jpg') no-repeat center;
+  background: url('komo2.png') no-repeat center;
   background-size: contain;
   position: absolute;
   width: 150px;
