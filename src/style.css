@@ -12,7 +12,7 @@ body {
 
 /* 中央カード風ボックス */
 .container {
-  background-color: #fff;
+  background: url('tairu.png') no-repeat center;
   border-radius: 12px;
   padding: 40px;
   box-shadow: 0 4px 16px rgba(0,0,0,0.1);
