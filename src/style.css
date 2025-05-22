@@ -91,7 +91,7 @@ button:hover {
 
 /* 雲 */
 .cloud {
-  background: url('https://i.imgur.com/o4Rg2ES.png') no-repeat center;
+  background: url('kumo.jpg') no-repeat center;
   background-size: contain;
   position: absolute;
   width: 150px;
@@ -116,7 +116,7 @@ button:hover {
 
 /* 山（丘） */
 .hill {
-  background: url('https://i.imgur.com/N8SNhS0.png') no-repeat bottom center;
+  background: url('yama.png') no-repeat bottom center;
   background-size: contain;
   position: absolute;
   bottom: 60px;
@@ -127,7 +127,7 @@ button:hover {
 
 /* 地面 */
 .ground {
-  background: url('https://i.imgur.com/YP7QeNZ.png') repeat-x;
+  background: url('zimenn.jpg') repeat-x;
   background-size: auto 100px;
   position: absolute;
   bottom: 0;
