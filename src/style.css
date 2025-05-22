@@ -91,12 +91,12 @@ button:hover {
 
 /* 雲 */
 .cloud {
-  background: url('kumo.jpg') no-repeat center;
+  background: url('komo2.jpg') no-repeat center;
   background-size: contain;
   position: absolute;
   width: 150px;
   height: 100px;
-  animation: cloudMove 60s linear infinite;
+  animation: cloudMove 30s linear infinite;
 }
 
 .cloud1 {
@@ -104,10 +104,20 @@ button:hover {
   left: 10%;
 }
 
+
 .cloud2 {
   top: 100px;
   left: 60%;
 }
+.cloud3 {
+  top: 100px;
+  right: 10%;
+}
+.cloud4{
+  top: 100px;
+  right: 60%;
+}
+
 
 @keyframes cloudMove {
   0% { transform: translateX(0); }
@@ -124,7 +134,15 @@ button:hover {
   width: 100%;
   height: 150px;
 }
-
+.hil2 {
+  background: url('yama.png') no-repeat bottom center;
+  background-size: contain;
+  position: absolute;
+  bottom: 60px;
+  left: 70;
+  width: 100%;
+  height: 150px;
+}
 /* 地面 */
 .ground {
   background: url('zimenn.jpg') repeat-x;
@@ -134,7 +152,7 @@ button:hover {
   left: 0;
   width: 200%;
   height: 100px;
-  animation: groundScroll 8s linear infinite;
+  animation: groundScroll 30s linear infinite;
 }
 
 @keyframes groundScroll {
