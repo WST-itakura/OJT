@@ -209,7 +209,7 @@ button:hover {
   background-image: url('mario.png'); /* 適切な画像パスに差し替えてください */
   background-size: contain;
   background-repeat: no-repeat;
-  z-index: 10;
+  z-index: 100;
   transition: left 0.1s;
 }
 
