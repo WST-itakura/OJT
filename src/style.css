@@ -190,16 +190,16 @@ button:hover {
 /* クリボーの基本スタイル */
 .goomba {
   position: absolute;
-  bottom: 80px; /* ← 地面の高さに合わせて調整 */
-  left: 100%;
-  width: 70px;  /* ← サイズを大きく */
-  height: 70px; /* ← サイズを大きく */
-  background-image: url('kuribo-.png');
-  background-size: contain; /* cover → contain に変更 */
+  bottom: 100px;
+  width: 60px;
+  height: 60px;
+  background-image: url('kuribo-.png'); /* パス確認 */
+  background-size: contain;
   background-repeat: no-repeat;
-  animation: walk-left 30s linear forwards;
+  animation: walk-left 10s linear forwards;
   z-index: 5;
 }
+
 .mario {
   position: absolute;
   bottom: 80px;
