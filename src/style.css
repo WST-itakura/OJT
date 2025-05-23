@@ -175,33 +175,43 @@ button:hover {
   height: 48px;
   background-image: url('ブロック.png');
   background-size: cover;
-   animation: walk-left 30s linear forwards;
 }
 
 /* 個別配置 */
 .block1 {
-  top: 550px;
+  top: 600px;
   left: 300px;
 }
 
 .block2 {
-  top: 550px;
+  top: 600px;
   right: 360px;
 }
 /* クリボーの基本スタイル */
 .goomba {
   position: absolute;
-  bottom: 100px; /* ← 地面の高さに合わせて調整 */
+  bottom: 150px; /* ← 地面の高さに合わせて調整 */
   left: 100%;
-  width: 80px;  /* ← サイズを大きく */
-  height: 80px; /* ← サイズを大きく */
+  width: 70px;  /* ← サイズを大きく */
+  height: 70px; /* ← サイズを大きく */
   background-image: url('kuribo-.png');
   background-size: contain; /* cover → contain に変更 */
   background-repeat: no-repeat;
   animation: walk-left 30s linear forwards;
   z-index: 5;
 }
-
+.mario {
+  position: absolute;
+  bottom: 100px;
+  left: 50px;
+  width: 60px;
+  height: 80px;
+  background-image: url('mario.png'); /* 適切な画像パスに差し替えてください */
+  background-size: contain;
+  background-repeat: no-repeat;
+  z-index: 10;
+  transition: left 0.1s;
+}
 
 /* アニメーション定義：右→左に移動 */
 @keyframes walk-left {
