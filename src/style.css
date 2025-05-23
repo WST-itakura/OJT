@@ -166,7 +166,7 @@ button:hover {
   left: 0;
   width: 200%;
   height: 100px;
-  animation: groundScroll 30s linear infinite;
+
 }
 
 .block {
@@ -188,31 +188,47 @@ button:hover {
   right: 360px;
 }
 /* クリボーの基本スタイル */
+#mario {
+  position: absolute;
+  bottom: 120px;
+  left: 50px;
+  width: 50px;
+  height: 80px;
+  background-image: url('fire-mario.gif');
+  background-size: cover;
+  z-index: 3;
+  cursor: pointer;
+  transition: transform 0.1s linear;
+}
+
+/* クリボー */
 .goomba {
   position: absolute;
   bottom: 100px;
   width: 60px;
   height: 60px;
-  background-image: url('kuribo-.png'); /* パス確認 */
-  background-size: contain;
-  background-repeat: no-repeat;
+  background-image: url('kuribo-.png');
+  background-size: cover;
   animation: walk-left 10s linear forwards;
-  z-index: 5;
+  z-index: 3;
 }
 
-#mario {
-  position: absolute;
-  bottom: 100px;
-  left: 50px;
-  width: 48px;
-  height: 60px;
-  background-image: url('mario.png'); /* マリオ画像のパスを確認 */
-  background-size: contain;
-  background-repeat: no-repeat;
-  cursor: pointer;
-  z-index: 10;
+/* 右→左アニメーション */
+@keyframes walk-left {
+  from { right: -70px; }
+  to { right: 110%; }
 }
 
+
+@keyframes jump {
+  0% { bottom: 150px; }
+  50% { bottom: 250px; }
+  100% { bottom: 150px; }
+}
+
+.mario-jump {
+  animation: jump 1.2s ease;
+}
 
 /* アニメーション定義：右→左に移動 */
 @keyframes walk-left {
@@ -228,4 +244,21 @@ button:hover {
 @keyframes groundScroll {
   0% { background-position-x: 0; }
   100% { background-position-x: -100%; }
+}
+.fireball {
+  width: 20px;
+  height: 20px;
+  background: radial-gradient(circle, orange 40%, red 80%);
+  border-radius: 50%;
+  position: absolute;
+  z-index: 500;
+  box-shadow: 0 0 8px orange;
+}
+#fireball-container {
+  position: absolute;
+  bottom: 30px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
 }
