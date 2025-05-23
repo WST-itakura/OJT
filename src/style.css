@@ -190,7 +190,7 @@ button:hover {
 /* クリボーの基本スタイル */
 .goomba {
   position: absolute;
-  bottom: 150px; /* ← 地面の高さに合わせて調整 */
+  bottom: 80px; /* ← 地面の高さに合わせて調整 */
   left: 100%;
   width: 70px;  /* ← サイズを大きく */
   height: 70px; /* ← サイズを大きく */
@@ -202,7 +202,7 @@ button:hover {
 }
 .mario {
   position: absolute;
-  bottom: 100px;
+  bottom: 80px;
   left: 50px;
   width: 60px;
   height: 80px;
