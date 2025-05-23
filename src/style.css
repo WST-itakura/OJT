@@ -200,18 +200,19 @@ button:hover {
   z-index: 5;
 }
 
-.mario {
+#mario {
   position: absolute;
-  bottom: 80px;
+  bottom: 100px;
   left: 50px;
-  width: 60px;
-  height: 80px;
-  background-image: url('mario.png'); /* 適切な画像パスに差し替えてください */
+  width: 48px;
+  height: 60px;
+  background-image: url('mario.png'); /* マリオ画像のパスを確認 */
   background-size: contain;
   background-repeat: no-repeat;
-  z-index: 100;
-  transition: left 0.1s;
+  cursor: pointer;
+  z-index: 10;
 }
+
 
 /* アニメーション定義：右→左に移動 */
 @keyframes walk-left {

@@ -1,84 +1,68 @@
-let imageDataURL = '';
-let isMoving = false;
-let mario = document.getElementById('mario');
+let isRunning = false;
+let mario = document.getElementById("mario");
 
-document.getElementById('imageInput').addEventListener('change', previewImage);
+function startMario() {
+  if (isRunning) return;
 
-function previewImage(event) {
-  const reader = new FileReader();
-  reader.onload = function () {
-    imageDataURL = reader.result;
-    document.getElementById('preview-box').innerHTML =
-      '<img src="' + imageDataURL + '" />';
-  };
-  reader.readAsDataURL(event.target.files[0]);
-}
+  isRunning = true;
+  mario.style.transition = "left 10s linear";
+  mario.style.left = "90%";
 
-function showResults() {
-  if (!imageDataURL) {
-    alert("画像を選択してください。");
-    return;
-  }
-  document.getElementById('selectedImage').src = imageDataURL;
-  document.getElementById('initial-screen').style.display = 'none';
-  document.getElementById('results-screen').style.display = 'block';
-}
+  spawnGoombasRepeatedly();
 
-function goBack() {
-  document.getElementById('results-screen').style.display = 'none';
-  document.getElementById('initial-screen').style.display = 'block';
-  location.reload(); // 画面をリセット
-}
-
-function spawnGoomba() {
-  const container = document.getElementById("goomba-container");
-  const goomba = document.createElement("div");
-  goomba.classList.add("goomba");
-  goomba.style.bottom = "100px"; // 地面と同じ高さ
-  container.appendChild(goomba);
-
-  // アニメーション終了後に削除
+  // 10秒後にリセット
   setTimeout(() => {
-    goomba.remove();
+    resetGame();
   }, 10000);
 }
 
-// ⏱️ 一定間隔でGoomba出現
-setInterval(spawnGoomba, 2000);
+function resetGame() {
+  isRunning = false;
+  mario.style.transition = "none";
+  mario.style.left = "50px";
 
-// ✅ マリオをクリックすると移動開始
-mario.addEventListener("click", () => {
-  if (!isMoving) {
-    isMoving = true;
-    moveMario();
-  }
-});
+  // クリボー削除
+  const goombas = document.querySelectorAll(".goomba");
+  goombas.forEach(g => g.remove());
+}
 
-function moveMario() {
+// クリボー連続出現
+function spawnGoombasRepeatedly() {
   const interval = setInterval(() => {
-    const currentLeft = parseInt(getComputedStyle(mario).left, 10);
-    mario.style.left = (currentLeft + 5) + 'px';
+    if (!isRunning) {
+      clearInterval(interval);
+      return;
+    }
+    spawnGoomba();
+  }, 1500);
+}
 
-    // 接触判定
-    document.querySelectorAll('.goomba').forEach(goomba => {
-      const marioRect = mario.getBoundingClientRect();
-      const goombaRect = goomba.getBoundingClientRect();
+// クリボー生成と当たり判定
+function spawnGoomba() {
+  const goomba = document.createElement("div");
+  goomba.classList.add("goomba");
+  document.getElementById("goomba-container").appendChild(goomba);
 
-      if (
-        marioRect.left < goombaRect.right &&
-        marioRect.right > goombaRect.left &&
-        marioRect.bottom > goombaRect.top &&
-        marioRect.top < goombaRect.bottom
-      ) {
-        // どこから当たったかで処理分岐（上から踏んだら削除、それ以外はリセット）
-        if (marioRect.bottom - 5 < goombaRect.top) {
-          goomba.remove(); // クリボーを踏みつぶす
-        } else {
-          clearInterval(interval);
-          alert("ゲームオーバー！リセットします");
-          location.reload(); // 全リセット
-        }
-      }
-    });
+  goomba.addEventListener("animationiteration", () => {
+    goomba.remove();
+  });
+
+  // 当たり判定（簡易）
+  const checkCollision = setInterval(() => {
+    if (!isRunning) return;
+
+    const marioRect = mario.getBoundingClientRect();
+    const goombaRect = goomba.getBoundingClientRect();
+
+    const isHit =
+      marioRect.left < goombaRect.right &&
+      marioRect.right > goombaRect.left &&
+      marioRect.top < goombaRect.bottom &&
+      marioRect.bottom > goombaRect.top;
+
+    if (isHit) {
+      clearInterval(checkCollision);
+      resetGame();
+    }
   }, 50);
 }
