@@ -171,7 +171,7 @@ button:hover {
 
 .block {
   position: absolute;
-  width: 48px;
+  width: 100px;
   height: 48px;
   background-image: url('ブロック.png');
   background-size: cover;
@@ -179,13 +179,13 @@ button:hover {
 
 /* 個別配置 */
 .block1 {
-  top: 200px;
+  top: 50px;
   left: 300px;
 }
 
 .block2 {
-  top: 200px;
-  left: 360px;
+  top: 50px;
+  right: 360px;
 }
 
 
