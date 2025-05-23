@@ -169,6 +169,26 @@ button:hover {
   animation: groundScroll 30s linear infinite;
 }
 
+.block {
+  position: absolute;
+  width: 48px;
+  height: 48px;
+  background-image: url('ブロック.png');
+  background-size: cover;
+}
+
+/* 個別配置 */
+.block1 {
+  top: 200px;
+  left: 300px;
+}
+
+.block2 {
+  top: 200px;
+  left: 360px;
+}
+
+
 @keyframes groundScroll {
   0% { background-position-x: 0; }
   100% { background-position-x: -100%; }
