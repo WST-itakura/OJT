@@ -179,13 +179,34 @@ button:hover {
 
 /* 個別配置 */
 .block1 {
-  top: 400px;
+  top: 550px;
   left: 300px;
 }
 
 .block2 {
-  top: 400px;
+  top: 550px;
   right: 360px;
+}
+/* クリボーの基本スタイル */
+.goomba {
+  position: absolute;
+  bottom: 48px;
+  width: 40px;
+  height: 40px;
+  background-image: url('kuribo-.png'); /* ←フリー素材例 */
+  background-size: cover;
+  animation: walk-left 10s linear forwards;
+  z-index: 5;
+}
+
+/* アニメーション定義：右→左に移動 */
+@keyframes walk-left {
+  from {
+    right: -50px;
+  }
+  to {
+    right: 100%;
+  }
 }
 
 
