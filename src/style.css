@@ -98,7 +98,7 @@ button:hover {
   position: absolute;
   width: 150px;
   height: 100px;
-  animation: cloudMove 30s linear infinite;
+  animation: cloudMove 60s linear infinite;
 }
 
 .cloud1 {
